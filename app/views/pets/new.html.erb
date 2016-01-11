@@ -1,0 +1,45 @@
+<p>New Pet</p>
+
+<%= form_for @pet do |f| %>
+
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.collection_select :user_id, @customers, :id, :name, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :type_of_pet %>
+    <%= f.select :pet_type, Pet.pet_types.keys.to_a, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :breed %>
+    <%= f.text_field :breed %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age %>
+    <%= f.number_field :age %>
+  </div>
+
+  <div class="field">
+    <%= f.label :weight %>
+    <%= f.number_field :weight %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_visit_on %>
+    <%= f.date_field :date_of_last_visit %>
+  </div>
+
+ 
+  <div class="actions">
+    <%= f.submit "Add pet" %>
+  </div>
+
+<% end %>

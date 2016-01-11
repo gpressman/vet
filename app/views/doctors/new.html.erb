@@ -1,0 +1,47 @@
+<p>DOCTOR</P>
+
+<%= form_for @doctor do |f| %>
+
+
+ <div class="field">
+    <%= f.label :user %>
+    <%= f.select (:user_id) do %>
+        <% @users.each do |user| %>
+        <% if user.doctor == nil %>
+        <%= content_tag(:option, user.name, value: user.id) %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :street_address %><br />
+    <%= f.text_field :street_address %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+   <div class="field">
+    <%= f.label :zip %><br />
+    <%= f.text_field :zip %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :school_received_degree_from %><br />
+    <%= f.text_field :graduated_from %>
+  </div>
+  <div class="field">
+    <%= f.label :years_in_practice %><br />
+    <%= f.number_field :years_in_practice, {min: 1, max: 100} %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Assign as doctor" %>
+  </div>
+<% end %>
+
+
+  

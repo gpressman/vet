@@ -1,0 +1,35 @@
+<p>New appointment</p>
+
+<%= form_for @appointment do |f| %>
+
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.collection_select :user_id, @customers, :id, :name, include_blank: true %>
+  </div>
+
+  <div class="field">
+  	<%= f.label :pet_id %>
+  	<%= f.grouped_collection_select :pet_id, @customers, :pets, :name, :id, :name, include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :appointment_date %>
+    <%= f.date_field :date, min: Date.today %>
+  </div>
+
+  <div class="field">
+  	<%= f.label :need_reminder? %>
+  	<%= f.check_box :reminder %>
+  </div>
+
+  <div class="field">
+  	<%= f.label :reason_for_visit %>
+  	<%= f.text_field :reason_for_visit %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Make appointment" %>
+  </div>
+
+<% end %>
+

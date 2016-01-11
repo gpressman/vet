@@ -1,0 +1,24 @@
+<p><%=@user.name%></p>
+<p><%=@user.user_type %></p>
+
+<% if @user.is_owner == true %>
+  <%= link_to("New Doctor", new_doctor_path) %>
+  <%= link_to("Doctors", doctors_path) %>
+<% end %>
+
+<% if @user.user_type == "Doctor" %>
+  <%= link_to("New pet", new_pet_path) %>
+<% end %>
+
+
+<% if current_user.user_type == "Receptionist" %>
+  <%= link_to("New appointment", new_appointment_path) %>
+<% end %>
+
+<% if current_user.user_type == "Customer" %>
+ <ul>
+ <% @pets.each do |pet| %>
+ <li><%= link_to "#{pet.name}", pet_path(pet.id) %></li>
+ </ul>
+ <% end %>
+<% end %>

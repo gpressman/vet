@@ -1,0 +1,17 @@
+
+  
+<% @doctors.each do |doctor| %>
+  <ul>
+  	<li>Dr. <%=doctor.user.name%></li>
+    <br />
+    <br />
+  	<li><%= doctor.street_address %></li>
+  	<li><%= doctor.state %></li>
+  	<li><%= doctor.zip %></li>
+  	<li><%= doctor.graduated_from %></li>
+    <li><%= doctor.years_in_practice %></li>
+  </ul>
+  <br />
+<% end %>
+
+
